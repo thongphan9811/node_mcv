@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <table>
+          <tr>
+            <th>title</th>
+            <th>image</th>
+            <th>userID</th>
+          </tr>
+          
+          <% posts.forEach(function(post) { %>
+            <tr>
+                <% console.log(post.image[0]) %>
+              <th><%= post.title; %></th>
+              <th><img src="../<%=post.image[0]; %>"; height="100px" width="100px" /></th>
+              <th><%= post.createdBy; %></th>
+            </tr>
+          <% }); %> 
+        </table>
+      </ul>
+    </div>
+  </body>
+</html>
