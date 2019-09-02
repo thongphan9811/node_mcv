@@ -80,7 +80,8 @@ router.get('/',async (req,res,next)=>{
 router.post('/like/:_postID',checktoken,async (req,res,next)=>{
     try{
         const postID = req.params._postID;
-        const checkLike = await likeModel.findOne({userlike :user._id,postID:postID});
+        const checkLike = await likeModel.findOne({userlike:user._id,postID:postID});
+        console.log(checkLike,"++++");
             if(checkLike) return res.json({mess :" ban da like bai post nay"});
         const checkPost = await PostModel.findById(postID);
     
@@ -90,7 +91,13 @@ router.post('/like/:_postID',checktoken,async (req,res,next)=>{
         postID : postID
     });
         const like = await likeClass.save();
+        return res.json({
+            code : 200,
+            mess : "like thanh cong",
+            data : {like}
+        })
     }catch(err){
+        console.log(err);
         return res.json({code:400 , mess: err, data : null});
     }
 });

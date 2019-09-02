@@ -7,3 +7,4 @@ const schema = new Schema ({
     postID : {type :ObjectId}
 });
 const LikeModel = mongoose.model('like',schema);
+module.exports = LikeModel;
